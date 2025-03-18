@@ -447,3 +447,55 @@ mysql> select max(d.amount)as max_deposit from Deposit d join customer c on d.cu
 |       60500 |
 +-------------+
 1 row in set (0.24 sec)
+
+mysql> create database bale;
+Query OK, 1 row affected (0.05 sec)
+
+mysql> use bale;
+Database changed
+mysql> create table Location(Location_id int,Regional_group varchar(20));
+Query OK, 0 rows affected (0.45 sec)
+
+mysql> create table Department(Department_id int,Name varchar(20),Location_id int);
+Query OK, 0 rows affected (0.24 sec)
+
+mysql> create table job(Job_id int,Function Varchar(30));
+Query OK, 0 rows affected (0.29 sec)
+
+mysql> Create table Employee(Employee_id int,FirstName varchar(25),Lastname varchar(25),Middlename varchar(12),Job_id int,Manager_id int,Hiredate date,Salary int,Department_id int);
+Query OK, 0 rows affected (0.32 sec)
+
+mysql> create table Loan(Employee_id int,Firstname varchar(25),Loan_Amount(int));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(int))' at line 1
+mysql> create table Loan(Employee_id int,Firstname varchar(25),Loan_Amount(int));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(int))' at line 1
+mysql> create table Loan(Employee_id int,Firstname varchar(25),Loan_Amount int); 
+Query OK, 0 rows affected (0.29 sec)
+
+mysql> desc Loan;
++-------------+-------------+------+-----+---------+-------+
+| Field       | Type        | Null | Key | Default | Extra |
++-------------+-------------+------+-----+---------+-------+
+| Employee_id | int(11)     | YES  |     | NULL    |       |
+| Firstname   | varchar(25) | YES  |     | NULL    |       |
+| Loan_Amount | int(11)     | YES  |     | NULL    |       |
++-------------+-------------+------+-----+---------+-------+
+3 rows in set (0.03 sec)
+
+mysql> 
+mysql> desc Employee;
++---------------+-------------+------+-----+---------+-------+
+| Field         | Type        | Null | Key | Default | Extra |
++---------------+-------------+------+-----+---------+-------+
+| Employee_id   | int(11)     | YES  |     | NULL    |       |
+| FirstName     | varchar(25) | YES  |     | NULL    |       |
+| Lastname      | varchar(25) | YES  |     | NULL    |       |
+| Middlename    | varchar(12) | YES  |     | NULL    |       |
+| Job_id        | int(11)     | YES  |     | NULL    |       |
+| Manager_id    | int(11)     | YES  |     | NULL    |       |
+| Hiredate      | date        | YES  |     | NULL    |       |
+| Salary        | int(11)     | YES  |     | NULL    |       |
+| Department_id | int(11)     | YES  |     | NULL    |       |
++---------------+-------------+------+-----+---------+-------+
+9 rows in set (0.02 sec)
+
